@@ -1,0 +1,209 @@
+---
+# Build me with:
+# python scripts/generator.py --semconv-version $(cat otel-semconv-version) --subset schemas/subsets/opus.yml
+name: opus
+fields:
+  base:
+    fields: "*"
+  as:
+    fields: "*"
+  blocklistd:
+    fields: "*"
+  choria:
+    fields: "*"
+  client:
+    fields:
+      address: {}
+      as:
+        fields: "*"
+      bytes: {}
+      domain: {}
+      geo:
+        fields: "*"
+      ip: {}
+      mac: {}
+      nat:
+        fields:
+          ip: {}
+          port: {}
+      packets: {}
+      port: {}
+      subdomain: {}
+      registered_domain: {}
+      top_level_domain: {}
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          group:
+            fields: "*"
+          hash: {}
+          id: {}
+          name: {}
+          roles: {}
+  db:
+    fields: "*"
+  destination:
+    fields:
+      address: {}
+      as:
+        fields: "*"
+      bytes: {}
+      domain: {}
+      geo:
+        fields: "*"
+      ip: {}
+      mac: {}
+      nat:
+        fields:
+          ip: {}
+          port: {}
+      packets: {}
+      port: {}
+      subdomain: {}
+      registered_domain: {}
+      top_level_domain: {}
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          group:
+            fields: "*"
+          hash: {}
+          id: {}
+          name: {}
+          roles: {}
+  dovecot:
+    fields: "*"
+  ecs:
+    fields: "*"
+  email:
+    fields: "*"
+  error:
+    fields: "*"
+  event:
+    fields: "*"
+  file:
+    fields: "*"
+  geo:
+    fields: "*"
+  group:
+    fields: "*"
+  http:
+    fields: "*"
+  log:
+    fields: "*"
+  network:
+    fields: "*"
+  observer:
+    fields: "*"
+  opus:
+    fields: "*"
+  postfix:
+    fields: "*"
+  postgresql:
+    fields: "*"
+  process:
+    fields:
+      args: {}
+      args_count: {}
+      command_line: {}
+      env_vars: {}
+      executable: {}
+      #name: {}
+      #pid: {}
+      real_user:
+        fields:
+          id: {}
+          name: {}
+      #title: {}
+      thread:
+        fields: "*"
+      user:
+        fields:
+          id: {}
+          name: {}
+      #vpid: {}
+      working_directory: {}
+  rails:
+    fields: "*"
+  riemann:
+    fields: "*"
+  samplerr:
+    fields: "*"
+  server:
+    fields:
+      address: {}
+      as:
+        fields: "*"
+      bytes: {}
+      domain: {}
+      geo:
+        fields: "*"
+      ip: {}
+      mac: {}
+      nat:
+        fields:
+          ip: {}
+          port: {}
+      packets: {}
+      port: {}
+      subdomain: {}
+      registered_domain: {}
+      top_level_domain: {}
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          group:
+            fields: "*"
+          hash: {}
+          id: {}
+          name: {}
+          roles: {}
+  source:
+    fields:
+      address: {}
+      as:
+        fields: "*"
+      bytes: {}
+      domain: {}
+      geo:
+        fields: "*"
+      ip: {}
+      mac: {}
+      nat:
+        fields:
+          ip: {}
+          port: {}
+      packets: {}
+      port: {}
+      subdomain: {}
+      registered_domain: {}
+      top_level_domain: {}
+      user:
+        fields:
+          domain: {}
+          email: {}
+          full_name: {}
+          group:
+            fields: "*"
+          hash: {}
+          id: {}
+          name: {}
+          roles: {}
+  syslog_ng:
+    fields: "*"
+  tls:
+    fields: "*"
+  url:
+    fields: "*"
+  user:
+    fields: "*"
+  user_agent:
+    fields: "*"
+  x509:
+    fields: "*"

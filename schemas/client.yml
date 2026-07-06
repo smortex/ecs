@@ -56,6 +56,13 @@
       short: IP address of the client.
       description: >
         IP address of the client (IPv4 or IPv6).
+    - name: cidr
+      level: core
+      type: ip_range
+      short: Network of the client.
+      example: 192.168.0.0/24
+      description: >
+        Network of the client (IPv4 or IPv6 CIDR).
 
     - name: port
       format: string

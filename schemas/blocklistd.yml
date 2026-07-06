@@ -1,0 +1,10 @@
+---
+- name: blocklistd
+  title: Blocklistd
+  description: Fields for Blocklistd
+  fields:
+    - name: duration
+      level: extended
+      type: long
+      description: Amount of time the blocking rule is active.
+      example: 86400

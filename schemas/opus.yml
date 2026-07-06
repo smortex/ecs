@@ -1,0 +1,34 @@
+---
+- name: opus
+  root: true
+  title: Opus
+  group: 2
+  short: Fields related to Opus-Codium organization
+  description: >
+    Site-specific fields.
+  type: group
+  fields:
+    - name: customer
+      level: custom
+      type: keyword
+      description: The identifier of the customer who pays for the machine.
+      example: opus-codium
+      multi_fields:
+        # FIXME: remove keyword double-mapping
+        - type: keyword
+          name: keyword
+    - name: facility
+      level: custom
+      type: keyword
+      description: Syslog facility of the event.
+      example: mail
+    - name: priority
+      level: custom
+      type: keyword
+      description: Syslog priority of the event.
+      example: info
+    - name: role
+      level: custom
+      type: keyword
+      description: The puppet role used to classify the node.
+      example: role::puppetserver

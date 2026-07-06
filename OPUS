@@ -1,0 +1,2 @@
+#!/bin/sh
+python scripts/generator.py --subset schemas/subsets/opus.yml --semconv-version $(cat otel-semconv-version)

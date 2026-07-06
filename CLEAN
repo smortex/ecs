@@ -1,0 +1,9 @@
+#!/bin/sh
+
+: ${OS_USER=admin}
+: ${OS_PASSWORD=admin}
+
+for component in $(curl -sk -X GET -HContent-Type:application/json  https://${OS_USER}:${OS_PASSWORD}@127.0.0.1:9200/_component_template | jq -r '.component_templates.[] | .name'); do
+	echo "===> $component"
+	curl -sk -X DELETE -HContent-Type:application/json  https://${OS_USER}:${OS_PASSWORD}@127.0.0.1:9200/_component_template/$component | jq .
+done

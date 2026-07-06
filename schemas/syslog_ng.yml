@@ -1,0 +1,101 @@
+---
+- name: syslog_ng
+  root: true
+  title: syslog-ng
+  group: 2
+  short: Default fields from syslog-ng
+  description: >
+    Bla
+  type: group
+  fields:
+    - name: HOST
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+    - name: HOST_FROM
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+    - name: MESSAGE
+      level: custom
+      type: match_only_text
+      description: Bla
+      example:
+    - name: PID
+      level: custom
+      type: long
+      description: Bla
+      example:
+    - name: PROGRAM
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+    - name: SOURCE
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+    - name: TRANSPORT
+      level: custom
+      type: keyword
+      description: Bla
+      example: local+journal
+    - name: MSGFORMAT
+      level: custom
+      type: keyword
+      description: Bla
+      example: raw
+
+    - name: MSGID
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+
+    - name: MSG
+      level: custom
+      type: match_only_text
+      description: Bla
+      example:
+    - name: MSGONLY
+      level: custom
+      type: match_only_text
+      description: Bla
+      example:
+    - name: FULLHOST
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+    - name: FULLHOST_FROM
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+
+    - name: RAWMSG
+      level: custom
+      type: match_only_text
+      description: Bla
+      example:
+    - name: FILE_NAME
+      level: custom
+      type: keyword
+      description: Bla
+      example:
+      multi:
+        - type: match_only_text
+          name: text
+    - name: PEERIP
+      level: custom
+      type: ip
+      description: Bla
+      example:
+    - name: PEERPORT
+      level: custom
+      type: long
+      description: Bla
+      example:

@@ -1,0 +1,74 @@
+---
+- name: dovecot
+  title: Dovecot
+  description: Fields for Dovecot log messages.
+  fields:
+    # Traffic stats
+    - name: in
+      level: extended
+      type: long
+      description: Bytes received by the server
+      example: 0
+    - name: out
+      level: extended
+      type: long
+      description: Bytes sent by the server
+      example: 0
+    # Mailbox activity
+    - name: deleted
+      level: extended
+      type: long
+      description: Number of deleted messages.
+      example: 0
+    - name: expunged
+      level: extended
+      type: long
+      description: Number of expunged messages.
+      example: 0
+    - name: trashed
+      level: extended
+      type: long
+      description: Number of thashed messages.
+      example: 0
+    # Statistics
+    - name: hdr_count
+      level: extended
+      type: long
+      description: Number of message headers fetched.
+      example: 0
+    - name: hdr_bytes
+      level: extended
+      type: long
+      description: Size in byte of message headers fetched.
+      example: 0
+    - name: body_count
+      level: extended
+      type: long
+      description: Number of message bodies fetched.
+      example: 0
+    - name: body_bytes
+      level: extended
+      type: long
+      description: Size in bytes of message bodies fetched.
+      example: 0
+
+    - name: method
+      level: extended
+      type: keyword
+      description: Authentication method
+      example:  PLAIN
+    - name: mpid
+      level: extended
+      type: long
+      description: Mail process ID
+      example: 64762
+    - name: session
+      level: extended
+      type: keyword
+      description: Session identifier
+      example: 1fuKKZlQZj9BMRRE
+    - name: tls
+      level: extended
+      type: text
+      description: Session identifier
+      example: "TLS: Connection closed"

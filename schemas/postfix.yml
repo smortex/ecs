@@ -1,0 +1,181 @@
+---
+- name: postfix
+  title: Postfix
+  description: Fields for Postfix log messages.
+  fields:
+    - name: relay
+      level: extended
+      type: keyword
+      description: Mail server (or delivery agent) Postfix handed the message off to.
+      example: local
+    - name: delay
+      level: extended
+      type: double
+      description: Total time (in seconds) from when Postfix received the message until it was delivered (or failed).
+      example: 1.6
+    - name: delays
+      level: extended
+      type: keyword
+      short: Details of message delivery lattency.
+      description: >
+        Raw values of lattency for message processing.
+
+        It consists of 4 floating point values separated by a `/` corresponding to:
+
+        * time before entering the queue manager;
+        * time in the queue manager;
+        * time to set-up connection to destination;
+        * time to transmit to destination.
+
+        These values can be used to populate the `pdelay`, `adelay`, `sdelay` and `xdelay`
+      example: 1.5/0.01/0/0.04
+    - name: pdelay
+      level: extended
+      type: double
+      description: Latency (in seconds) before queue manager.
+      example: 1.5
+    - name: adelay
+      level: extended
+      type: double
+      description: Latency (in seconds) in the queue manager.
+      example: 1.01
+    - name: sdelay
+      level: extended
+      type: double
+      description: Latency (in seconds) to set-up connection.
+      example: 0
+    - name: xdelay
+      level: extended
+      type: double
+      description: Latency (in seconds) of transmission.
+      example: 0.04
+    - name: dsn
+      level: extended
+      type: keyword
+      description: Enhanced status code as specified in RFC 3463.
+      example: 2.0.0
+    # postfix/qmgr
+    - name: size
+      level: extended
+      type: long
+      description: Message size in bytes
+      example: 50411
+    - name: nrcpt
+      level: extended
+      type: long
+      description: Number of recipients
+      example: 1
+    # postfix/smtp
+    - name: orig_to
+      level: extended
+      type: keyword
+      description: Original recipipent of the message
+      example: example@localhost
+    - name: tls
+      level: extended
+      type: keyword
+      description: TLS level
+      example: dane
+
+    # postfix/smtpd
+    - name: stats.helo
+      level: extended
+      type: long
+      description: Number of `HELO` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.ehlo
+      level: extended
+      type: long
+      description: Number of `EHLO` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.starttls
+      level: extended
+      type: long
+      description: Number of `STARTTLS` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.auth
+      level: extended
+      type: long
+      description: Number of `AUTH` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.mail
+      level: extended
+      type: long
+      description: Number of `MAIL` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.rcpt
+      level: extended
+      type: long
+      description: Number of `RCPT` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.data
+      level: extended
+      type: long
+      description: Number of `DATA` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.quit
+      level: extended
+      type: long
+      description: Number of `QUIT` commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    - name: stats.commands
+      level: extended
+      type: long
+      description: Total number of commands during the client session.
+      parameters:
+        ignore_malformed: true
+      example: 1
+      multi_fields:
+        - type: wildcard
+          name: wildcard
+    # NOQUEUE
+    - name: proto
+      level: extended
+      type: keyword
+      description: Protocol in use.
+      example: ESMTP
+    - name: helo
+      level: extended
+      type: keyword
+      description: Protocol in use.
+      example: ESMTP

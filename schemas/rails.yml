@@ -1,0 +1,45 @@
+---
+- name: rails
+  title: Ruby on Rails
+  description: Fields for Ruby on Rails log messages.
+  fields:
+    - name: application
+      level: extended
+      type: keyword
+      description: Name of the Rails application
+      example: acme_auth
+    - name: controller
+      level: extended
+      type: keyword
+      description: Controller handling the request.
+      example: SessionsController
+    - name: action
+      level: extended
+      type: keyword
+      description: Action of tE controller handling the request.
+      example: new
+    - name: format
+      level: extended
+      type: keyword
+      description: Output format.
+      example: HTML
+    - name: parameters
+      level: extended
+      type: flat_object
+      description: Parameters received by the controller action.
+      example: '{"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"john.doe@example.org", "password"=>"[FILTERED]"}, "commit"=>"Log in"}'
+    - name: partial
+      level: extended
+      type: keyword
+      description: Rendered partial.
+      example: devise/sessions/new.html.haml
+    - name: layout
+      level: extended
+      type: keyword
+      description: Layout used for rendering.
+      example: layouts/application.html.haml
+    - name: additions
+      level: extended
+      type: keyword
+      description: Additional data.
+      example: "Duration: 22.6ms | GC: 0.8ms"

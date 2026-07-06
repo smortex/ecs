@@ -55,6 +55,13 @@
       short: IP address of the server.
       description: >
         IP address of the server (IPv4 or IPv6).
+    - name: cidr
+      level: core
+      type: ip_range
+      short: Network of the server.
+      example: 192.168.0.0/24
+      description: >
+        Network of the server (IPv4 or IPv6 CIDR).
 
     - name: port
       format: string

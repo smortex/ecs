@@ -1,0 +1,28 @@
+---
+- name: choria
+  title: Choria
+  group: 2
+  description: Orchestration made easy
+  fields:
+    # XXX: Should we move this into event.action?
+    - name: action
+      level: extended
+      type: keyword
+      description: Name of the operation the RPC agent executes.
+      example: inventory
+    # XXX: Should we move this into service.something?
+    - name: agent
+      level: extended
+      type: keyword
+      description: Name of the RPC agent that receives and handles the request.
+      example: rpcutil
+    - name: caller
+      level: extended
+      type: keyword
+      description: Identity of the user or client that initiated the request.
+      example: cn=rip.mcollective
+    - name: sender
+      level: extended
+      type: keyword
+      description: Identity of the host that initiated the request.
+      example: Hostname of the node that initiated the request.

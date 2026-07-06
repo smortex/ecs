@@ -1,0 +1,86 @@
+---
+- name: db
+  title: Database
+  group: 2
+  description: Fields describing Database interaction
+  fields:
+
+    - name: collection.name
+      level: extended
+      type: keyword
+      description: The name of a collection (table, container) within the database.
+      example: public.users
+      otel:
+        - relation: match
+
+    - name: namespace
+      level: extended
+      type: keyword
+      description: The name of the database, fully qualified within the server address and port.
+      example: customers
+      otel:
+        - relation: match
+
+    - name: operation.batch.size
+      level: extended
+      type: long
+      description: The number of database operations included in a batch operation.
+      example: 3
+      otel:
+        - relation: match
+
+    - name: operation.name
+      level: extended
+      type: keyword
+      description: The name of the operation or command being executed.
+      example: SELECT
+      otel:
+        - relation: match
+
+    - name: query.summary
+      level: extended
+      type: keyword
+      description: Low cardinality summary of a database query.
+      example: SELECT wuser_table
+      otel:
+        - relation: match
+
+    - name: query.text
+      level: extended
+      type: match_only_text
+      description: The database query being executed.
+      example: SELECT * FROM wuser_table where username = ?
+      otel:
+        - relation: match
+
+    - name: response.returned_rows
+      level: extended
+      type: long
+      description: Number of rows returned by the operation.
+      example: 42
+      otel:
+        - relation: match
+
+    - name: response.status_code
+      level: extended
+      type: keyword
+      description: Database response status code.
+      example: ORA-17002
+      otel:
+        - relation: match
+
+    - name: stored_procedure.name
+      level: extended
+      type: keyword
+      description: The name of a stored procedure within the database.
+      example: GetCustomer
+      otel:
+        - relation: match
+
+    - name: system.name
+      level: extended
+      type: keyword
+      description: The database management system (DBMS) product as identified by the client instrumentation.
+      example: postgresql
+      otel:
+        - relation: match

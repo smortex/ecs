@@ -50,6 +50,13 @@
       short: IP address of the destination.
       description: >
         IP address of the destination (IPv4 or IPv6).
+    - name: cidr
+      level: core
+      type: ip_range
+      short: Network of the destination.
+      example: 192.168.0.0/24
+      description: >
+        Network of the destination (IPv4 or IPv6 CIDR).
 
     - name: port
       format: string

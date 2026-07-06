@@ -1,0 +1,35 @@
+---
+- name: samplerr
+  root: true
+  title: Samplerr
+  group: 2
+  short: Additional fields for Samplerr with Riemann
+  description: >
+    Bla
+  type: group
+  fields:
+    - name: cfunc
+      level: custom
+      type: keyword
+      description: The consolidation functions name.
+      example: avg
+    - name: count
+      level: custom
+      type: long
+      description: The number of events consolidated.
+      example: 42
+    - name: step
+      level: custom
+      type: long
+      description: The consolidation time interval.
+      example: 300
+    - name: sum
+      level: custom
+      type: long
+      description: The sum of consolidated events' metric.
+      example: 0.1122
+    - name: tf
+      level: custom
+      type: keyword
+      description: The time format string to be used to target the archive.
+      example: YYYY.MM.dd

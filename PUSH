@@ -1,0 +1,27 @@
+#!/bin/sh
+# Push passed components templates
+#
+# ./push tls source http event base
+
+: ${OS_USER=admin}
+: ${OS_PASSWORD=admin}
+
+if [ $# -eq 0 ]; then
+	set -- $(cd generated/opensearch/composable/component && ls | sed -e 's/.json$//')
+fi
+
+for file; do
+	component="$(echo $file | sed -e 's/^/ecs-/')"
+	echo "===> PUT $component"
+	output=`mktemp`
+	curl --silent --insecure --fail-with-body --output="${output}" --request PUT --header "Content-Type:application/json" --data @generated/opensearch/composable/component/$file.json https://${OS_USER}:${OS_PASSWORD}@127.0.0.1:9200/_component_template/$component
+	if [ $? -eq 0 ]; then
+		jq . "${output}"
+	else
+		echo "Curl returned with exit-code $?" >&2
+		printf -- '------------------------------ 8< ------------------------------\n'
+		cat "${output}" >&2
+		printf -- '\n------------------------------ 8< ------------------------------\n'
+	fi
+	rm -f "${output}"
+done

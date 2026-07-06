@@ -1,0 +1,24 @@
+---
+- name: postgresql
+  title: PostgreSQL
+  group: 2
+  description: Extentded database field for PostgreSQL.
+  fields:
+
+    - name: application_name
+      level: extended
+      type: keyword
+      description: Application name as reported by the client.
+      example: acme
+
+    - name: backend_type
+      level: extended
+      type: keyword
+      description: Server process role associated with the event.
+      example: client backend
+
+    - name: message
+      level: extended
+      type: keyword
+      description: Actual message.
+      example: no partition of relation "reports_historical" found for row

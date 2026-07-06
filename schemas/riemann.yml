@@ -1,0 +1,67 @@
+---
+- name: riemann
+  root: true
+  title: Riemann
+  group: 2
+  short: Fields describing Riemann convention
+  description: >
+    Bla
+  type: group
+  fields:
+    - name: host
+      level: custom
+      type: keyword
+      description: A hostname, e.g. "api1", "foo.com"
+      example: foo.com
+      multi_fields:
+        # FIXME: remove keyword double-mapping
+        - type: keyword
+          name: keyword
+    - name: service
+      level: custom
+      type: keyword
+      description: A service name, e.g. "API port 8000 reqs/sec"
+      multi_fields:
+        # FIXME: remove keyword double-mapping
+        - type: keyword
+          name: keyword
+        - type: match_only_text
+          name: text
+      example: API port 8000 reqs/sec
+    - name: state
+      level: custom
+      type: keyword
+      description: Any string less than 255 bytes, e.g. "ok", "warning", "critical"
+      example: ok
+    - name: description
+      level: custom
+      type: match_only_text
+      description: Freeform text
+    - name: tags
+      level: custom
+      type: keyword
+      description: Freeform list of strings, e.g. ["rate", "fooproduct", "transient"]
+    - name: metric
+      level: custom
+      type: double
+      description: A number associated with this event, e.g. the number of reqs/sec.
+      example: 8000.0
+    - name: ttl
+      level: custom
+      type: double
+      description: A floating-point time, in seconds, that this event is considered valid for.
+      example: 60.0
+    - name: riemann.logger_name
+      level: custom
+      type: keyword
+      description: Logger name
+      example: riemann.transport.tcp
+    - name: riemann.stack_trace
+      level: custom
+      type: match_only_text
+      description: Exception stack trace
+    - name: riemann.thread_name
+      level: custom
+      type: keyword
+      description: Name of the thread
+      example: defaultEventExecutorGroup-2-1
